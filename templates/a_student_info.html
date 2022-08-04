@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+    <p class="h3">Имя: {{ student.name }}, класс: {{ student.year }}, команда: {{ student.team.title }}</p>
+    <h4>Достижения</h4>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Место</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for achievement in student.achievements %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ achievement.competition.title }}</td>
+            <td>{{ achievement.place }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>Наряды</h4>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Причина</th>
+            <th scope="col">Описание</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for punishment in student.punishments %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ punishment.reason }}</td>
+            <td>{{ punishment.punishment }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

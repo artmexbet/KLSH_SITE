@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+  <h4>Соревнования</h4>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for competition in competitions %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ competition.title }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}

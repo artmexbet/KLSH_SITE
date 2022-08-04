@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body>
+<div class="container">
+    <nav
+            class="d-flex flex-wrap align-items-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <h3  class="d-flex align-items-center text-dark text-decoration-none fs-1">КЛШ</h3>
+        </a>
+        <div class="nav col-12 col-md-auto mb-2 mb-md-0 ms-3 fs-5">
+            <a class="p-2 text-dark text-decoration-none" href="/">Главная</a>
+            {% if current_user.is_authenticated %}
+            <a class="p-2 text-dark text-decoration-none" href="/students">Школьники</a>
+            {% if current_user.role.title == "Админ" %}
+            <a class="p-2 text-dark text-decoration-none" href="/teams">Команды</a>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="text-end ms-auto">
+            {% if current_user.is_authenticated %}
+            {% if current_user.role.title == "Админ" %}
+            <a class="btn btn-outline-warning fs-5" href="/register">Регистрация школьников</a>
+            {% endif %}
+            <a class="btn btn-outline-danger fs-5" href="/logout">Выйти</a>
+            {% else %}
+            <a class="btn btn-outline-success fs-5" href="/login">Войти</a>
+            {% endif %}
+        </div>
+    </nav>
+</div>
+    {% block body%}
+    {% endblock %}
+</body>
+</html>

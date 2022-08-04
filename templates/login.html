@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+    <form method="post" class="form-signin w-50 m-sm-auto">
+        <h1>Авторизация</h1>
+        <input type="text" placeholder="Логин" name="login" id="login" class="form-control"><br>
+        <input type="password" placeholder="Пароль" name="password" id="password" class="form-control"><br>
+        <input type="checkbox" id="remember_me" name="remember_me">
+        <label for="remember_me">Запомнить меня</label><br>
+        <input type="submit" value="Войти" class="btn btn-success">
+    </form>
+    <p style="{p: red;}">{{ error }}</p>
+</main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+    <h4>Команды</h4>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in teams %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ team.title }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>

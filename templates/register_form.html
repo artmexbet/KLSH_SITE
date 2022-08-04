@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+    <form method="post" class="form-signin w-50 m-sm-auto">
+        <h1>Регистрация</h1>
+        <input type="text" placeholder="Логин" name="login" id="login" class="form-control"><br>
+        <input type="text" placeholder="Имя" name="name" id="name" class="form-control"><br>
+        <select class="form-control" name="team">
+            {% for team in teams %}
+            <option>{{ team.title }}</option>
+            {% endfor %}
+        </select><br>
+        <select class="form-control" name="year">
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select> <br>
+        <select class="form-control" name="role">
+            {% for role in roles %}
+            <option>{{ role.title }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="password" placeholder="Пароль" name="password" id="password" class="form-control"><br>
+        <input type="submit" value="Зарегистрировать" class="btn btn-success">
+    </form>
+</main>
+{% endblock %}

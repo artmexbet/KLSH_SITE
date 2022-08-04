@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="container text-center">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Класс</th>
+            <th scope="col">Команда</th>
+            <th scope="col">Информация</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+        <tr>
+            <th scope="row">{{ student.id }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.year }}</td>
+            <td>{{ student.team.title }}</td>
+            <td><a class="btn btn-success" href="/students/{{ student.id }}">Подробнее</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock %}
