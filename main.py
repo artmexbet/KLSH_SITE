@@ -104,7 +104,7 @@ def get_student(student_id):
         abort(404)
 
 
-# TODO: добавление и удаление нарядов и достижений, добавление соревнований
+# TODO: добавление и удаление нарядов и достижений
 
 @app.route("/teams")
 def get_teams():
@@ -140,6 +140,12 @@ def add_competition():
         abort(404)
     if request.method == "GET":
         return render_template("add_competition.html")
+    db_sess = db_session.create_session()
+    competition = Competitions()
+    competition.title = request.form["title"]
+    db_sess.add(competition)
+    db_sess.commit()
+    return redirect("/competitions")
 
 
 if __name__ == "__main__":
