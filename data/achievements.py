@@ -9,5 +9,5 @@ class Achievements(SqlAlchemyBase):
     competition_id = Column(Integer, ForeignKey("competitions.id"), nullable=False)
     place = Column(Integer)
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    competition = orm.relation('Competitions')
-    student = orm.relation('User')
+    competition = orm.relationship('Competitions')
+    student = orm.relationship('User')

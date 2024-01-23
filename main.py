@@ -112,7 +112,7 @@ def get_teams():
 
 
 @login_required
-@app.route("/teams/add", method=["POST", "GET"])
+@app.route("/teams/add", methods=["POST", "GET"])
 def add_team():
     if current_user.role.title != "Админ":
         abort(404)

@@ -9,4 +9,4 @@ class Punishments(SqlAlchemyBase):
     reason = Column(String, nullable=False)
     punishment = Column(String, nullable=False)
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    student = orm.relation('User')
+    student = orm.relationship('User')

@@ -15,10 +15,10 @@ class User(SqlAlchemyBase, UserMixin):
     login = Column(String, nullable=False)
     password = Column(String, nullable=False)
     role_id = Column(Integer, ForeignKey("roles.id"), nullable=False)
-    role = orm.relation('Roles')
-    team = orm.relation('Teams')
-    punishments = orm.relation("Punishments", back_populates="student", cascade="all, delete")
-    achievements = orm.relation("Achievements", back_populates="student", cascade="all, delete")
+    role = orm.relationship('Roles')
+    team = orm.relationship('Teams')
+    punishments = orm.relationship("Punishments", back_populates="student", cascade="all, delete")
+    achievements = orm.relationship("Achievements", back_populates="student", cascade="all, delete")
 
     def set_password(self, password):
         self.password = generate_password_hash(password)

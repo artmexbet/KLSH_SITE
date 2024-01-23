@@ -7,4 +7,4 @@ class Competitions(SqlAlchemyBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String, nullable=False)
-    achievements = orm.relation("Achievements", back_populates="competition", cascade="all, delete")
+    achievements = orm.relationship("Achievements", back_populates="competition", cascade="all, delete")

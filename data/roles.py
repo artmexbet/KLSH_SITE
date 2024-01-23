@@ -7,4 +7,4 @@ class Roles(SqlAlchemyBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String, nullable=False)
-    users = orm.relation("User", back_populates="role")
+    users = orm.relationship("User", back_populates="role")
